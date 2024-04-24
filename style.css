@@ -23,7 +23,7 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("img/home3.jpeg");
+    background-image: url("./img/home3.jpeg");
     background-size: cover;
     background-position: center;
     filter: brightness(50%); /* Применяем затемнение к фону */
@@ -159,7 +159,7 @@ header div input {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('img/info_1\ \(2\).jpeg');
+    background-image: url('./img/info_1\ \(2\).jpeg');
     background-size: cover;
     background-position: center;
     filter: brightness(40%); /* Применяем затемнение к фону */
@@ -255,14 +255,14 @@ header div input {
     width: 60px;
     height: 60px;
     margin: 0 10px;
-    background-image: url("img/circle.svg");
+    background-image: url("./img/circle.svg");
     background-repeat: no-repeat;
 }
   .icon_img_time {
     width: 60px;
     height: 60px;
     margin: 0 10px;
-    background-image: url("img/time.svg");
+    background-image: url("./img/time.svg");
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;
@@ -304,7 +304,7 @@ header div input {
   width: 500px;
   height: 250px;
   position: absolute;
-  background-image: url("img/disine/disine1.jpeg");
+  background-image: url("./img/disine/disine1.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   top: 100px;
@@ -325,7 +325,7 @@ header div input {
   width: 500px;
   height: 250px;
   position: absolute;
-  background-image: url("img/disine/disine2.jpeg");
+  background-image: url("./img/disine/disine2.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   top: 100px;
@@ -493,7 +493,7 @@ header div input {
 .openCloseArrow{
   width: 25px;
   height: 25px;
-  background-image: url(/img/arrow.png);
+  background-image: url("./img/arrow.png");
   background-repeat: no-repeat;
   background-position: center;
   transform: rotate(-90deg);
@@ -539,7 +539,7 @@ header div input {
 }
 .arrow_for_input {
   width: 20px;
-  background-image: url(/img/arrow_for_input.png);
+  background-image: url("./img/arrow_for_input.png");
   background-repeat: no-repeat;
   background-position: center;
   border-bottom: 1px solid rgb(241, 241, 241);
@@ -554,7 +554,7 @@ header div input {
 .reviews_img {
   width: 100%;
   height: 100%;
-  background-image: url(/img/info_1.jpeg);
+  background-image: url("./img/info_1.jpeg");
   background-position: center;
   position: relative;
 }
@@ -668,11 +668,11 @@ header div input {
 
 footer {
   width: 100%;
-  height: 250px;
+  /* height: 250px; */
   margin-top: 50px;
-  padding: 30px 10vw;
+  padding: 30px 10vw 0;
   color: rgb(221, 217, 217);
-  background-image: url(/img/footer_background.jpg);
+  background-image: url("./img/footer_background.jpg");
   background-position: center 1000px;
   position: relative;
   overflow: hidden;
@@ -702,7 +702,7 @@ footer::before {
   width: 100px;
   height: 50px;
   margin-bottom: 30px;
-  background-image: url(/img/logo1.png);
+  background-image: url("./img/logo1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -735,20 +735,14 @@ footer::before {
 
 
 
-
-@media screen and (max-width: 950px) {
-  .stages {
-    width: 100%; 
-    /* justify-content: center; */
-    align-items: center;
+@media screen and (max-width: 1500px){
+  .answers_to_questions {
     flex-direction: column;
-    margin: 0;
- }
-
- .circle_icon {
-  margin: 50px 0 0 0;
- }
- 
+    align-items: center;
+  }
+  .question {
+    margin-bottom: 10px;
+  }
 }
 @media screen and (max-width: 1250px) {
   .anim_left {
@@ -770,11 +764,11 @@ footer::before {
     display: none;
   }
   .info_3_lr, .info_3_lrr{
-    width: 600px;
-    height: 400px;
+    width: 100%;
     position: static;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
   }
   .inf3_reverse {
     flex-direction: column-reverse;
@@ -798,12 +792,110 @@ footer::before {
     width: 100%;
   }
 }
-@media screen and (max-width: 1500px){
-  .answers_to_questions {
-    flex-direction: column;
+@media screen and (max-width: 950px) {
+  .stages {
+    width: 100%; 
+    /* justify-content: center; */
     align-items: center;
+    flex-direction: column;
+    margin: 0;
+ }
+
+ .circle_icon {
+  margin: 50px 0 0 0;
+ }
+ 
+}
+@media screen and (max-width: 430px) {
+  header {
+    width: 100%;
+    height: 600px;
   }
-  .question {
-    margin-bottom: 10px;
+  header nav ol {
+    display: none;
+  }
+  .info_2{
+    padding: 0 50px;
+    text-align: center;
+  }
+  .info_2 ul {
+    margin-top: 50px;
+  }
+  .anim_right{
+    margin: 0;
+  }
+  .anim_right iframe{
+    width: 355px;
+    height: 200px;
+  }
+  .info_3{
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .info_3_img {
+    width: 100%;
+    margin: 50px 0;
+  }
+  
+  .info_3_text{
+    width: 400px;
+    margin: 0;
+    text-align: center;
+  }
+  .inf3_reverse{
+    display: flex;
+
+  }
+  .prices {
+    width: 100%;
+    padding: 0;
+    margin: 50px 0;
+    
+  }
+  .price {
+    width: 100%;
+    justify-content: center;
+  }
+  .answers_to_questions{
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .question{
+    padding: 10px;
+  }
+  .order_a_call {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+  }
+  .reviews {
+    width: 100%;
+    height: 300px;
+    margin-top: 50px;
+    padding: 0;
+  } 
+  footer {
+    padding: 10px 30px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .footer_info_1 {
+    display: none;
+  }
+  .footer_info {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer_info_2 {
+    height: 50px;
+    display: block;
+  }
+  .footer_border{
+    margin: 5px ;
   }
 }
+
+

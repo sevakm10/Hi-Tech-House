@@ -97,7 +97,7 @@ document.querySelectorAll('.question').forEach((question, index) => {
   question.addEventListener('click', () => {
       if (!answer.style.height) {
           closeAllAnswers(); // Закрываем все ответы перед открытием нового
-          answer.style.height = '100px';
+          answer.style.height = '110px';
           question.style.backgroundColor = "rgb(206, 203, 203)"
           arrow.style.transform = "rotate(0deg)"
       } else {
