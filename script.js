@@ -40,12 +40,12 @@ function sentTel(){
     tel_1.style.border = "3px solid green"
     emailjs.send("service_4glljtw", "template_yj4u49g", parms)
     .then(function(response) {
-      console.log("Email successfully sent!", response);
-      alert("Email Sent!");
+      console.log("Number successfully sent!", response);
+      alert("Number Sent!");
     })
     .catch(function(error) {
-      console.error("Email sending failed:", error);
-      alert("Failed to send email. Please try again later.");
+      console.error("Number sending failed:", error);
+      alert("Failed to send number. Please try again later.");
     });
   }
 }
