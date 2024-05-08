@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header id="header" >
+    <header id="header">
         <nav id="nav">
             <a href="#header"><img src="img/logo1.png" alt="" class="logo"></a>
             
@@ -33,8 +33,9 @@
             <p>
                 Write your phone number and we will contact you within 15 minutes!
             </p>
-            <input type="tel" name="number"  placeholder="Your phone">
-            <button class="scanfcode">SEND</button>
+            <input type="tel" name="number" id="tel_1" placeholder="Your phone">
+            <label for="tel_1"></label>
+            <button type="button" class="scanfcode" onclick="sentTel()">SEND</button>
         </div>
     </header>
 
@@ -210,9 +211,9 @@
                     <p class="rooms_p2">180 000$</p>
                     <p class="rooms_p3">83m²</p>
                     <p class="rooms_p4">26m²</p>
-                    <button class="rooms_button">View the layout</button>
+                    <button class="rooms_button"><a href="#gallery">View the layout</a> </button>
                 </div>
-                <button class="btn_consultation">Consultation</button>
+                <button class="btn_consultation"><a href="#contacts">Consultation</a> </button>
             </div>
             <div class="price_flex" style="background-color: silver;" id="price_anim2">
                 <span class="popular">Popular</span>
@@ -222,9 +223,9 @@
                     <p class="rooms_p2">230 000$</p>
                     <p class="rooms_p3">135m²</p>
                     <p class="rooms_p4">45m²</p>
-                    <button class="rooms_button">View the layout</button>
+                    <button class="rooms_button"><a href="#gallery">View the layout</a> </button>
                 </div>
-                <button class="btn_consultation">Consultation</button>
+                <button class="btn_consultation"><a href="#contacts">Consultation</a> </button>
             </div>
             <div class="price_flex" id="price_anim3">
                 <div class="price_block">
@@ -233,9 +234,9 @@
                     <p class="rooms_p2">280 000$</p>
                     <p class="rooms_p3">198m²</p>
                     <p class="rooms_p4">67m²</p>
-                    <button class="rooms_button">View the layout</button>
+                    <button class="rooms_button"><a href="#gallery">View the layout</a> </button>
                 </div>
-                <button class="btn_consultation">Consultation</button>
+                <button class="btn_consultation"><a href="#contacts">Consultation</a> </button>
             </div>
             <div class="price_flex" id="price_anim4">
                 <div class="price_block">
@@ -244,9 +245,9 @@
                     <p class="rooms_p2">350 000$</p>
                     <p class="rooms_p3">250m²</p>
                     <p class="rooms_p4">75m²</p>
-                    <button class="rooms_button">View the layout</button>
+                    <button class="rooms_button"><a href="#gallery">View the layout</a> </button>
                 </div>
-                <button class="btn_consultation">Consultation</button>
+                <button class="btn_consultation"><a href="#contacts">Consultation</a> </button>
             </div>
         </div>
     </div>
@@ -267,8 +268,8 @@
         <div class="order_a_call">
                 <h4>Order a call</h4>
                 <div style="width: 250px; display: flex;">
-                    <input type="tel" name="number" placeholder="Enter the phone number">
-                    <div class="arrow_for_input"></div>
+                    <p>Enter the phone number</p>
+                    <a href="#header" class="arrow_for_input"></a>
                 </div>
                 
                 <p>We will call you back within 15 minutes</p>   
@@ -300,20 +301,21 @@
         <div class="map">
             <p>Map</p>
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A38be43d3f77e7fb8bb4a27c7558fc6a8c9364b10a2345498f40952ebdfa32a6d&amp;source=constructor" frameborder="0"></iframe>               
-        </div>
-        <div class="booking">
-            <p>Sign up</p>
+        </div> 
+        <!--Send message-->
+        <form action="">  
+            <p>Send message</p>
             <div class="data">
                 <div>
-                    <input type="text" placeholder="Your name">
-                    <input type="tel" name="" id="" placeholder="Your phone number">
+                    <input type="text" id="name" placeholder="Your name">
+                    <input type="tel" id="tel_3" placeholder="Your phone number">
                 </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                <textarea name="" id="message" cols="30" rows="10" placeholder="Message"></textarea>
                 <div class="button-container">
-                    <button>Sign up</button>
+                    <button type="button" onclick="sendMail_3()">Send</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <footer>
         <div class="footer_info">
@@ -336,6 +338,14 @@
     
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="script.js"></script>
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("N9MulyJTi3RqN9jNb");
+    })();
+    </script>
 </body>
 
 </html>

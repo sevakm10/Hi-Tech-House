@@ -3,9 +3,6 @@ let header = document.getElementById("header");
 let info_1_blok = document.querySelectorAll(".info_1_blok");
 let anim_right = document.getElementById("anim_right")
 
-let arrayBackgroundImage = ["url(img/home1.jpeg)","url(img/home2.jpeg)","url(img/home3.jpeg)","url(img/home4.jpeg)"]
-let arrayElement = 0;
-
 let circle_icon_1 = document.getElementById("circle_icon_1");
 let circle_icon_2 = document.getElementById("circle_icon_2");
 let circle_icon_3 = document.getElementById("circle_icon_3");
@@ -21,15 +18,7 @@ let price_anim4 = document.getElementById("price_anim4")
 
 
 
-// function backgroundImageUpdate(){
-//     header.style.backgroundImage = arrayBackgroundImage[arrayElement]
-//     arrayElement++
-//     if(arrayElement >= 4){
-//         arrayElement = 0
-//     }
-// }
-// setInterval(backgroundImageUpdate,10000) // Функция меняет фон header каждые 5 секунд
-
+// Навигационная панель меняет цвет на чёрный при скроле страницы в начале
 window.addEventListener("scroll", function(){
     if(window.scrollY > 10){
         nav.style.backgroundColor = "rgba(0, 0, 0, 0.8)"
@@ -38,8 +27,32 @@ window.addEventListener("scroll", function(){
         nav.style.backgroundColor = "transparent"
     }
 })
+function sentTel(){
+  let tel_1 = document.getElementById("tel_1")
+  const parms = {tel: tel_1.value}
+  function isValidPhone(el) {
+    return /^\+?\d{6,}$/g.test(el);
+  }
+  if(!isValidPhone(tel_1.value)){
+    tel_1.style.border = "3px solid rgb(218, 106, 106)"
+    console.log(1);
+  }else{
+    tel_1.style.border = "3px solid green"
+    emailjs.send("service_4glljtw", "template_yj4u49g", parms)
+    .then(function(response) {
+      console.log("Email successfully sent!", response);
+      alert("Email Sent!");
+    })
+    .catch(function(error) {
+      console.error("Email sending failed:", error);
+      alert("Failed to send email. Please try again later.");
+    });
+  }
+}
 
-function obs (name,ms,anim) {
+
+// Функция для анимаций, принимающая три параметра : название анимации, длительность, сама анимация, и срабатывает когда блок условно виден на 50%
+function obs (name,ms,anim) {  
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {      
@@ -71,6 +84,7 @@ obs(price_anim2,300,"fade-in-bottom 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000
 obs(price_anim3,500,"fade-in-bottom 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both")
 obs(price_anim4,700,"fade-in-bottom 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both")
 
+//Создаём галлерею фотографий с использованием swiper.js
 let swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
   grabCursor: true,
@@ -83,20 +97,17 @@ let swiper = new Swiper(".mySwiper", {
     depth: 100,
     modifier: 1,
     slideShadows: true,
-  },
-  // pagination: {
-  //   el: ".swiper-pagination",
-  // },
+  }
 });
 swiper.slideTo(3); // делаем активным третий слайд
 
-
+//Создаём аккордион вопрос-ответ
 document.querySelectorAll('.question').forEach((question, index) => {
   const answer = document.getElementById(`answer_${index + 1}`);
   const arrow = document.getElementById(`openCloseArrow_${index+1}`)
   question.addEventListener('click', () => {
       if (!answer.style.height) {
-          closeAllAnswers(); // Закрываем все ответы перед открытием нового
+          closeAllAnswers(); 
           answer.style.height = '110px';
           question.style.backgroundColor = "rgb(206, 203, 203)"
           arrow.style.transform = "rotate(0deg)"
@@ -108,6 +119,7 @@ document.querySelectorAll('.question').forEach((question, index) => {
   });
 });
 
+// Функция которая закрывает все ответы перед открытием нового 
 function closeAllAnswers() {
   document.querySelectorAll('.hiddenText').forEach(answer => {
       answer.style.height = null;
@@ -120,6 +132,7 @@ function closeAllAnswers() {
   })
 }
 
+// Отзывы
 let swiper2 = new Swiper('.mySwiper2', {
   slidesPerView: 1,
   centeredSlides: true,
@@ -131,3 +144,59 @@ let swiper2 = new Swiper('.mySwiper2', {
   }
 );
 
+
+// Форма отправки сообщения на почту 
+function sendMail_3() {
+  let name = document.getElementById('name');
+  let tel_3 = document.getElementById('tel_3');
+  let message = document.getElementById('message');
+// Создаём объект со значениями введённым пользователем 
+  let parms = {
+    name: name.value,
+    tel: tel_3.value,
+    message: message.value,
+  };
+// Проверяем что пользователь правильно ввёл номер телефона, состоящий из возможного знака "+" и минимум из 6 цифр
+  function isValidPhone(el) {
+    return /^\+?\d{6,}$/g.test(el);
+  }
+  if(!isValidPhone(tel_3.value)){
+    tel_3.style.border = "3px solid rgb(218, 106, 106)"
+  }else{
+    tel_3.style.border = "3px solid green"
+    emailjs.send("service_4glljtw", "template_yj4u49g", parms)
+    .then(function(response) {
+      console.log("Email successfully sent!", response);
+      alert("Email Sent!");
+    })
+    .catch(function(error) {
+      console.error("Email sending failed:", error);
+      alert("Failed to send email. Please try again later.");
+    });
+  }
+}
+
+// Плавный скролл к якорю
+document.addEventListener('DOMContentLoaded', function() {
+  let links = document.querySelectorAll('a[href^="#"]');
+  
+  for (let i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', smoothScroll);
+  }
+
+  function smoothScroll(event) {
+      event.preventDefault();
+
+      let targetId = this.getAttribute('href');
+      let targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+          let targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          
+          window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+          });
+      }
+  }
+});

@@ -23,7 +23,7 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("./img/home3.jpeg");
+    background-image: url("./img/home0.jpeg");
     background-size: cover;
     background-position: center;
     filter: brightness(50%); /* Применяем затемнение к фону */
@@ -97,6 +97,7 @@ header div input {
     border: none;
     outline: none;
     padding: 10px;
+    transition: 0.1s;
 }
 .scanfcode {
   background-color:#161414;
@@ -424,6 +425,7 @@ header div input {
   visibility: hidden;
   transition: 0.5s;
 }
+
 .price_flex:hover{
   box-shadow: 1px 3px 29px 4px rgba(0,0,0,0.52);
  -webkit-box-shadow: 1px 3px 29px 4px rgba(0,0,0,0.52);
@@ -453,19 +455,27 @@ header div input {
   border-radius: 20px;
   cursor: pointer;
 }
+.rooms_button a {
+  text-decoration: none;
+  color: #161414;
+}
 .btn_consultation {
   width: 60%;
   height: 40px;
   margin: 0 auto ;
   border-radius: 20px;
-  color: white;
   background-color: black;
   cursor: pointer;
   border: none;
   transition: 0.5s ease;
+  text-decoration: none;
 }
 .btn_consultation:hover {
   letter-spacing: 0.1em;
+}
+.btn_consultation a {
+  color: white;
+  text-decoration: none;
 }
 .answers_to_questions{
   width: 100%;
@@ -609,13 +619,13 @@ header div input {
   width: 100%;
   height: 100%;
 }
-.map p, .booking p{
+.map p, form p{
   font-size: 24px;
   padding: 10px 0;
   font-weight: 100;
   color: rgb(59, 58, 58);
 }
-.booking {
+form {
   width: 38vw;
 }
 .data {
@@ -634,6 +644,7 @@ header div input {
   border: none;
   outline: none;
   padding: 10px;
+  transition: 0.1s;
   background-color: rgb(241, 241, 241);
 }
 .data textarea {
@@ -788,14 +799,13 @@ footer::before {
   .map {
     width: 100%;
   }
-  .booking {
+  form {
     width: 100%;
   }
 }
 @media screen and (max-width: 950px) {
   .stages {
     width: 100%; 
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
     margin: 0;
