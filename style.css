@@ -378,8 +378,7 @@ header div input {
 .gallery .swiper-slide img {
   display: block;
   width: 600px;
-  height: 400px;
-  
+  height: 400px; 
 }
 
 .prices {
@@ -834,7 +833,7 @@ footer::before {
   .anim_right{
     margin: 0;
   }
-  .anim_right iframe{
+  .anim_right video{
     width: 355px;
     height: 200px;
   }
@@ -855,7 +854,20 @@ footer::before {
   }
   .inf3_reverse{
     display: flex;
-
+  }
+  .gallery .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    max-width: 300px;
+    height: 200px;
+  }
+  
+  .gallery .swiper-slide img {
+    display: block;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 200px; 
   }
   .prices {
     width: 100%;
